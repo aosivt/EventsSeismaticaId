@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.url">jdbc:postgresql://84.237.62.137:5432/seismatica</property>
+        <!--<property name="connection.url">jdbc:postgresql://10.101.95.127:5432/seismatica</property>-->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.username">seismatica_usr</property>
+        <property name="connection.password">kubank12RX1</property>
+        <property name="connection.pool_size">100</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="hibernate.show_sql">true</property>
+
+
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+
+        <property name="format_sql">true</property>
+
+        <property name="hbm2ddl.auto">update</property>
+        <!-- JDBC connection pool (use the built-in) -->
+        <!--<property name="connection.pool_size">1</property>-->
+
+        <!-- JDBC connection pool (use the built-in) -->
+
+        <property name="current_session_context_class">thread</property>
+        <property name="hibernate.order_updates">true</property>
+        <property name="hibernate.order_inserts">true</property>
+
+
+
+        <!--&lt;!&ndash; Drop ands re-create the database schema on startup-->
+        <!--<property name="hbm2ddl.auto">create</property>-->
+
+        <mapping class="ServicePack.Entitys.EventTemplates" />
+        <mapping class="ServicePack.Entitys.StationsInfo" />
+
+
+    </session-factory>
+</hibernate-configuration>
