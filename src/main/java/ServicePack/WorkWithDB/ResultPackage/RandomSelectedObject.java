@@ -3,6 +3,7 @@ package ServicePack.WorkWithDB.ResultPackage;
 import ServicePack.WorkWithDB.EventObject;
 import ServicePack.WorkWithDB.RandomEvent.RandomEventObject;
 import ServicePack.WorkWithDB.SelectedEvent.SelectedEventObject;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.postgresql.jdbc4.Jdbc4ResultSet;
 
@@ -14,6 +15,7 @@ import java.util.List;
 /**
  * Created by oshchepkovayu on 13.04.17.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RandomSelectedObject {
     @JsonProperty("random_object")
     private RandomEventObject randomEventObject;

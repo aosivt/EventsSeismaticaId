@@ -30,27 +30,6 @@ public class GetReturnController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-
-
-//    @GetMapping("/greeting-javaconfig")
-    @RequestMapping(value = "/greeting",method = RequestMethod.POST)
-    public ReturnResult greeting(
-            @RequestParam(value="fromDate", defaultValue="World") String fromDate,
-            @RequestParam(value="toDate", defaultValue="World") String toDate,
-            @RequestParam(value="rad", defaultValue="World") String rad
-    ) {
-
-        GetEventTemp getEventTemp = new GetEventTemp();
-        String[] part = getEventTemp.getEventTempString().split(";");
-
-
-        List<String> e = Arrays.asList(part[0].split(" "));
-        List<String> n = Arrays.asList(part[1].split(" "));
-        List<String> z = Arrays.asList(part[2].split(" "));
-
-        return new ReturnResult(e,n,z);
-    }
-
     @RequestMapping(value = "/stations",method = RequestMethod.POST)
     public ListReturnStationInfo getStationInfo(@RequestParam(value="stationid", defaultValue="") String stationId) {
 
@@ -68,31 +47,15 @@ public class GetReturnController {
     }
 
     @RequestMapping(value = "/randomevent",method = RequestMethod.POST)
-//    public RandomSelectedObject getRandomEvent(@RequestParam(value="stationid", defaultValue="") String stationId) {
+
     public RandomSelectedObject getRandomEvent(
             @RequestParam(value="stationid" , defaultValue="KEM") String stationId,
             @RequestParam(value="radius"    , defaultValue="5") String  radius
     ) {
 
-        if (!stationId.equals("")) {
-
-            RandomSelectedObject selectedEventObject =
-                    new RandomSelectedObject(new RandomEventObject(stationId),radius);
-
-            new CalculateExtentSum(selectedEventObject);
-//            ReseachStandardization reseachStandardization = new ReseachStandardization(selectedEventObject);
-
-//            return selectedEventObject;
-            System.out.print("return");
-            return selectedEventObject;
-        }
-
         RandomSelectedObject selectedEventObject =
                 new RandomSelectedObject(new RandomEventObject(stationId),radius);
-        ReseachStandardization reseachStandardization =
-                new ReseachStandardization(selectedEventObject);
         return selectedEventObject;
     }
-
 
 }

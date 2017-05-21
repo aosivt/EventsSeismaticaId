@@ -19,7 +19,8 @@ public class SpringApplicationInit {
     public static void main(String[] args) {
 
         SpringApplication.run(SpringApplicationInit.class, args);
-
+//        GetReturnController getReturnController =  new GetReturnController();
+//        getReturnController.getRandomEvent("KEM","5");
 
     }
     @Bean

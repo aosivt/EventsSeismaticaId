@@ -2,6 +2,7 @@ package ServicePack.WorkWithDB.SelectedEvent;
 
 import ServicePack.WorkWithDB.EventObject;
 import ServicePack.WorkWithDB.RandomEvent.RandomEventObject;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.sql.*;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 /**
  * Created by oshchepkovayu on 12.04.17.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SelectedEventObject implements EventObject<SelectedEventObject>{
 
     private Integer                     id;
