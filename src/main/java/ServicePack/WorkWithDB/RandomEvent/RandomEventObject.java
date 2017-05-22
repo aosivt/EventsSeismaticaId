@@ -435,6 +435,7 @@ public class RandomEventObject implements EventObject<RandomEventObject> {
 
     @Override
     public RandomEventObject setCorelation(double dataAsDouble) {
+        System.err.print(dataAsDouble);
         this.corelation = dataAsDouble;
         return this;
 

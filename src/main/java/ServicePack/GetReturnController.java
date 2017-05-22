@@ -55,6 +55,7 @@ public class GetReturnController {
 
         RandomSelectedObject selectedEventObject =
                 new RandomSelectedObject(new RandomEventObject(stationId),radius);
+        new CalculateExtentSum(selectedEventObject);
         return selectedEventObject;
     }
 
